@@ -20,14 +20,12 @@ class SecondActivity: AppCompatActivity() {
     }
 
     private fun navigateToThirdActivity() {
-        val firstName = intent.getStringExtra(FIRST_NAME_EXTRA)
-        val lastName = intent.getStringExtra(LAST_NAME_EXTRA)
         val email = binding.firstEt.text.toString()
         val schoolName = binding.secondEt.text.toString()
 
         val intent = Intent(this, ThirdActivity::class.java).also {
-            it.putExtra(FIRST_NAME_EXTRA, firstName)
-            it.putExtra(LAST_NAME_EXTRA, lastName)
+            it.putExtra(FIRST_NAME_EXTRA, intent.getStringExtra(FIRST_NAME_EXTRA))
+            it.putExtra(LAST_NAME_EXTRA, intent.getStringExtra(LAST_NAME_EXTRA))
             it.putExtra(EMAIL_EXTRA, email)
             it.putExtra(SCHOOL_EXTRA, schoolName)
         }
