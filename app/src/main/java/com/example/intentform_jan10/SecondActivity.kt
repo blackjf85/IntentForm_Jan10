@@ -2,11 +2,11 @@ package com.example.intentform_jan10
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.SyncStateContract
 import androidx.appcompat.app.AppCompatActivity
 import com.example.intentform_jan10.databinding.FormLayoutBinding
 
 class SecondActivity: AppCompatActivity() {
-
     private lateinit var binding: FormLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +20,10 @@ class SecondActivity: AppCompatActivity() {
     }
 
     private fun navigateToThirdActivity() {
-        val firstName = binding.firstEt.text.toString()
-        val lastName = binding.secondEt.text.toString()
-        val email = binding.email.text.toString()
-        val schoolName = binding.school.text.toString()
+        val firstName = intent.getStringExtra(FIRST_NAME_EXTRA)
+        val lastName = intent.getStringExtra(LAST_NAME_EXTRA)
+        val email = binding.firstEt.text.toString()
+        val schoolName = binding.secondEt.text.toString()
 
         val intent = Intent(this, ThirdActivity::class.java).also {
             it.putExtra(FIRST_NAME_EXTRA, firstName)
